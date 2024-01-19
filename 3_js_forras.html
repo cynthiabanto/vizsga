@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Unit teszt feladat</title>
+	<script type="text/javascript">
+	//<!-- Ide jön  a feladat megoldása... -->
+
+	// 1. 
+function kivalogatParosOtven(array) {
+    return array.filter(num => num % 2 === 0 && num > 50);
+}
+
+const inputArray = [10, 20, 3, 5, 100, 50, 60, 53];
+const filteredArray = kivalogatParosOtven(inputArray);
+console.log(filteredArray); 
+
+// 2. 
+function aBetukSzamaDiv() {
+    const firstDivContent = document.querySelector('div').textContent;
+    const aCount = (firstDivContent.match(/a/gi) || []).length;
+    return aCount;
+}
+
+const aCountInDiv = aBetukSzamaDiv();
+console.log(aCountInDiv); 
+
+// 3.
+
+
+function osszeadasFeliras(osztaly, operandus1, operandus2) {
+    
+    let elem = document.querySelector("." + osztaly);
+
+    
+    if (elem) {
+        
+        operandus1 = Number(operandus1);
+        operandus2 = Number(operandus2);
+
+        
+        if (!isNaN(operandus1) && !isNaN(operandus2)) {
+            
+            let tartalom = operandus1 + " + " + operandus2 + " = " + (operandus1 + operandus2);
+
+            
+            let ujParagraf = document.createElement("p");
+            ujParagraf.textContent = tartalom;
+
+            
+            let ujDiv = document.createElement("div");
+            ujDiv.classList.add(osztaly);
+            ujDiv.appendChild(ujParagraf);
+
+            
+            elem.appendChild(ujDiv);
+        } else {
+            console.error("A megadott operandusok nem számok.");
+        }
+    } else {
+        console.error("Nem található elem a megadott osztállyal.");
+    }
+}
+
+
+osszeadasFeliras("eredmeny", 2, 3);
+
+	
+	
+	//<!-- Idáig -->
+	</script>
+	<script src="testBaseUnit.js"></script>
+</head>
+<body>
+    <div></div>
+	<hr>
+	<div id="testResult">
+	<h2>Tesztek</h2></div>
+</body>
+</html>
